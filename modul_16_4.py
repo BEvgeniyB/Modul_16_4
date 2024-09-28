@@ -39,7 +39,7 @@ async def users_all() -> list[User]:
 async def user_add(user: User) ->str:
     user.id = len(users)+1
     users.append(user)
-    return f"User {users[user.id-1]} is registered"
+    return f"User {user} is registered"
 
 
 @app.put('/user/{user_id}/{username}/{age}')
