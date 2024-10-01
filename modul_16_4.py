@@ -37,7 +37,10 @@ async def users_all() -> list[User]:
 
 @app.post("/user/{username}/{age}")
 async def user_add(user: User) ->str:
-    user.id = users[-1].id+1
+    if len(users) == 0:
+        user.id = 1
+    else:
+        user.id = users[-1].id+1
     users.append(user)
     return f"User {user} is registered"
 
